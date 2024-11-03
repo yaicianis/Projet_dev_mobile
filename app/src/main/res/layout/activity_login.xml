@@ -1,0 +1,145 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D7D7D7"
+    tools:context=".MainActivity">
+
+    <!-- Container to overlay the text on the ImageView -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/semi_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!-- Background ImageView -->
+
+        <!-- New ImageView for 'personne' -->
+
+        <!-- TextView for "Sign up" -->
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="453dp"
+            android:layout_height="600dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.562"
+            app:srcCompat="@drawable/untitled_design__8__removebg_preview"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Placeholder Text -->
+        <TextView
+            android:id="@+id/signUpText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log in"
+            android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:translationX="0dp"
+            android:translationY="65dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="72dp" />
+
+        <TextView
+            android:id="@+id/loremIpsumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur."
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:translationX="0dp"
+            android:translationY="70dp"
+            app:layout_constraintEnd_toEndOf="@id/signUpText"
+            app:layout_constraintStart_toStartOf="@id/signUpText"
+            app:layout_constraintTop_toBottomOf="@id/signUpText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Username Field -->
+    <EditText
+        android:id="@+id/editTextTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Enter your username"
+        android:inputType="text"
+        android:translationX="10dp"
+        android:translationY="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerContainer" />
+
+    <!-- Password Field -->
+    <EditText
+        android:id="@+id/editTextNumberPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="numberPassword"
+        android:translationX="10dp"
+        android:translationY="200dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextUsername" />
+
+    <!-- Log in Button -->
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/customColor"
+        android:text="Log in"
+        android:translationX="10dp"
+        android:translationY="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNumberPassword" />
+
+    <!-- Log In Link -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:text="Forgot password"
+        android:textColor="@color/black"
+        android:translationX="10dp"
+        android:translationY="260dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_button" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationX="10dp"
+        android:translationY="220dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/personne"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="248dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
