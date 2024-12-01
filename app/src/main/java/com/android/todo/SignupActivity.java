@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -31,6 +32,7 @@ import java.util.Map;
 public class SignupActivity extends AppCompatActivity {
     private EditText usernameEditText, emailEditText, passwordEditText, confirmPasswordEditText;
     private Button signUpButton;
+    private TextView loginText;
     private FirebaseAuth auth;
     private FirebaseFirestore db;
 
@@ -48,6 +50,7 @@ public class SignupActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password);
         confirmPasswordEditText = findViewById(R.id.editTextTextPassword2);
         signUpButton = findViewById(R.id.SignBtn);
+        loginText = findViewById(R.id.LoginTxt);
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +86,15 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 RegisterUser(username, email, password);
+            }
+        });
+
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
