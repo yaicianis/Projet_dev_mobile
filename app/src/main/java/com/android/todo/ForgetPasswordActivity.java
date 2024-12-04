@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,21 +22,11 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgetPasswordActivity extends AppCompatActivity {
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-//        setContentView(R.layout.activity_forget_password);
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
-//    }
+    private Button sendRequestButton;
+    private EditText editEmail;
+    private TextView backBtn;
+    private FirebaseAuth mAuth;
 
-    Button sendRequestButton;
-    EditText editEmail;
-    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +35,7 @@ public class ForgetPasswordActivity extends AppCompatActivity {
 
         sendRequestButton = findViewById(R.id.SendRequestBtn);
         editEmail = findViewById(R.id.email);
+        backBtn = findViewById(R.id.backBtn);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -54,6 +46,15 @@ public class ForgetPasswordActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(email)){
                     ResetPassword(email);
                 } else editEmail.setError("Email field can't be empty!");
+            }
+        });
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ForgetPasswordActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
             }
         });
     }

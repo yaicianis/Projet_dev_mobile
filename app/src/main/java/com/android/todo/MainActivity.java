@@ -5,34 +5,45 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView userTextView;
-    private FirebaseAuth auth;
 
-    @SuppressLint("SetTextI18n")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        replaceFragment(new HomeFragment());
 
-        userTextView = findViewById(R.id.userText);
-        auth = FirebaseAuth.getInstance();
+        BottomNavigationView bottomNavigation = findViewById(R.id.bottomNavigationView);
+        bottomNavigation.setOnItemSelectedListener(item -> {
+            if(item.getItemId() == R.id.home)
+                replaceFragment(new HomeFragment());
+            else if(item.getItemId() == R.id.calendar)
+                replaceFragment(new CalendarFragment());
+            else if(item.getItemId() == R.id.settings)
+                replaceFragment(new SettingsFragment());
 
-        FirebaseUser user = auth.getCurrentUser();
+            return true;
+        });
+    }
 
-        if(user != null) {
-            String username = user.getDisplayName();
-            if(username == null || username.isEmpty()) username = user.getEmail();
-            userTextView.setText(username);
-        } else userTextView.setText("Guest");
-
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+        fragmentTransaction.commit();
     }
 }

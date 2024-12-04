@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToDo"
         tools:targetApi="31">
-        <activity android:name=".LoginActivity" />
         <activity
-            android:name=".SignupActivity"
+            android:name=".AddTaskActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoryActivity"
+            android:exported="false" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".ForgetPasswordActivity" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
