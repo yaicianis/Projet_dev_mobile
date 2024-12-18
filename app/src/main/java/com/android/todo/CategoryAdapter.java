@@ -15,10 +15,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private List<Category> categories;
     private Context context;
+    private String userEnergyLevel;
 
-    public CategoryAdapter(List<Category> categories, Context context) {
+    public CategoryAdapter(List<Category> categories, Context context, String userEnergyLevel) {
         this.categories = categories;
         this.context = context;
+        this.userEnergyLevel = userEnergyLevel;
     }
 
     @NonNull
@@ -38,6 +40,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, CategoryActivity.class);
             intent.putExtra("CATEGORY_NAME", category.getName());
+            intent.putExtra("USER_ENERGY", this.userEnergyLevel);
             context.startActivity(intent);
         });
 

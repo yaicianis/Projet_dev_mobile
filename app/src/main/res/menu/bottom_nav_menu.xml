@@ -4,9 +4,6 @@
     <item android:title="Home"
         android:id="@+id/home"
         android:icon="@drawable/home_icon"/>
-    <item android:title="Calendar"
-        android:id="@+id/calendar"
-        android:icon="@drawable/calendar_icon"/>
     <item android:title="Energy"
         android:id="@+id/energy"
         android:icon="@drawable/energy_icon"/>

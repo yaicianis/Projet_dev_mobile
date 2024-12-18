@@ -85,16 +85,46 @@
         android:id="@+id/btnSaveTask"
         android:layout_width="308dp"
         android:layout_height="50dp"
-        android:layout_marginTop="24dp"
         android:backgroundTint="#007EA7"
+        android:text="Save Task"
         android:textSize="20sp"
         app:cornerRadius="10dp"
-        android:text="Save Task"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etTaskDate"
+        app:layout_constraintTop_toBottomOf="@+id/prioritySpinner"
         app:layout_constraintVertical_bias="0.081" />
+
+    <Spinner
+        android:id="@+id/energySpinner"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:background="@drawable/roundstyle_edittext"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:entries="@array/task_energy"
+        android:paddingLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTaskDate" />
+
+    <Spinner
+        android:id="@+id/prioritySpinner"
+        android:layout_width="352dp"
+        android:layout_height="50dp"
+        android:background="@drawable/roundstyle_edittext"
+        android:backgroundTint="@color/white"
+        android:ems="10"
+        android:entries="@array/task_priorities"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/energySpinner" />
 
     <EditText
         android:id="@+id/etTaskDescription"
